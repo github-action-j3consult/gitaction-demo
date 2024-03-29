@@ -5,7 +5,7 @@ on:
             aws-env:
                 description: "AWS ELASTIC BEANSTALK ENVIRONMENT"
                 required: true
-                default: "project-staging"
+                default: "project-gitaction-staging"
                 type: string
             github-env:
                 description: "GitHub Environment"
