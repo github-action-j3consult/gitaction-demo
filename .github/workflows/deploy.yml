@@ -57,6 +57,8 @@ jobs:
               run: npm ci
             - name: Build App
               run: npm run build
+              env:
+                FLAGSMITH_KEY: ${{ secrets.FLAGSMITH_KEY }}
               id: install-eb-cli
             - name: Install EB CLI
               
