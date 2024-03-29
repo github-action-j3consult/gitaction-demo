@@ -23,6 +23,8 @@ jobs:
         run: npm run typecheck
       - name: Build Project
         run: npm run build
+        env:
+          FLAGSMITH_KEY: ${{ secrets.FLAGSMITH_KEY }}
       - uses: actions/upload-artifact@v3
         with:
           name: build
