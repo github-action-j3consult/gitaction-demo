@@ -6,6 +6,7 @@ on:
     branches: [main]
 concurrency:
   group: ${{github.workflow}}-${{github.ref}}
+  cancel-in-progress: true
 jobs:
   create-version-pr-or-release:
     runs-on: ubuntu-latest
@@ -44,3 +45,7 @@ jobs:
                     }
                 ]
             }
+        env:
+            SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+            SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+
