@@ -65,8 +65,7 @@ jobs:
           daemon_off: false
           dockerfile: ./Dockerfile
           context: ./
-        env:
-          FLAGSMITH_KEY: ${{ secrets.FLAGSMITH_KEY }}
+
       - name: Send a Slack Message on Failure
         uses: slackapi/slack-github-action@v1.24.0
         if: failure()
