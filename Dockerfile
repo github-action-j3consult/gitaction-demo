@@ -1,4 +1,4 @@
-FROM node:14-alpine AS build
+FROM node:16.20.2 AS build
 WORKDIR /app
 
 # Copy package.json and package-lock.json
@@ -14,7 +14,7 @@ COPY . .
 RUN npm run build
 
 # Production stage
-FROM node:14-alpine AS production
+FROM node:16.20.2 AS production
 WORKDIR /app
 
 # Copy the built artifacts from the build stage
