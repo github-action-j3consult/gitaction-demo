@@ -63,8 +63,8 @@ jobs:
           region: ${{ vars.AWS_REGION }}
           tags: latest,${{ github.run_number }}
           daemon_off: false
-          dockerfile: ./Dockerfile
-          context: ./
+          dockerfile: ../Dockerfile
+          context: ../
       - name: Send a Slack Message on Failure
         uses: slackapi/slack-github-action@v1.24.0
         if: failure()
