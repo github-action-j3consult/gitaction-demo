@@ -56,15 +56,15 @@ jobs:
       - name: Build and Deploy steps
         uses: appleboy/docker-ecr-action@master
         with:
-            access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-            secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-            registry: ${{ secrets.REGISTRY }}
-            repo: cicdimg
-            region: ${{ vars.AWS_REGION }}
-            tags: latest,${{ github.run_number }}
-            daemon_off: false
-            dockerfile: ./Dockerfile
-            context: ./    
+          access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          registry: ${{ secrets.REGISTRY }}
+          repo: cicdimg
+          region: ${{ vars.AWS_REGION }}
+          tags: latest,${{ github.run_number }}
+          daemon_off: false
+          dockerfile: ./Dockerfile
+          context: ./
       - name: Send a Slack Message on Failure
         uses: slackapi/slack-github-action@v1.24.0
         if: failure()
