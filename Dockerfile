@@ -7,6 +7,9 @@ COPY package*.json ./
 # Install dependencies
 RUN npm ci
 
+# Set the Flagsmith key environment variable
+ENV FLAGSMITH_KEY=${FLAGSMITH_KEY}
+
 # Copy the entire project
 COPY . .
 
