@@ -8,6 +8,7 @@ COPY package*.json ./
 RUN npm ci
 
 # Set the Flagsmith key environment variable
+ARG FLAGSMITH_KEY
 ENV FLAGSMITH_KEY=${FLAGSMITH_KEY}
 
 # Copy the entire project
