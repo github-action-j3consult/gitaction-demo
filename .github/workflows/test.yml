@@ -58,6 +58,8 @@ jobs:
 
       - name: Build and Deploy steps
         uses: appleboy/docker-ecr-action@master
+        env:
+          FLAGSMITH_KEY: ${{ env.FLAGSMITH_KEY }}
         with:
           access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -68,8 +70,6 @@ jobs:
           daemon_off: false
           dockerfile: ./Dockerfile
           context: ./
-        env:
-          FLAGSMITH_KEY: ${{ env.FLAGSMITH_KEY }}
 
       - name: Send a Slack Message on Failure
         uses: slackapi/slack-github-action@v1.24.0
