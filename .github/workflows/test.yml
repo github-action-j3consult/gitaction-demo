@@ -80,6 +80,7 @@ jobs:
           region: ${{ secrets.AWS_REGION}}
           tags: latest,${{ github.run_number }}
           dockerfile: ./Dockerfile
+          path: ./
           create_repo: false
           extra_build_args: ${{ env.FLAGSMITH_KEY }}
 
