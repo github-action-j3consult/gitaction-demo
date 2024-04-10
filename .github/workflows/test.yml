@@ -1,10 +1,13 @@
 name: Test
 on:
   workflow_call:
+env:
+  FLAGSMITH_KEY: ser.ZsKaMfvLiFvPtyS6LEgjMq
 
 jobs:
   test-and-build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -66,7 +69,7 @@ jobs:
           dockerfile: ./Dockerfile
           context: ./
         env:
-          FLAGSMITH_KEY: ${{ secrets.FLAGSMITH_KEY }}
+          FLAGSMITH_KEY: ${{ env.FLAGSMITH_KEY }}
 
       - name: Send a Slack Message on Failure
         uses: slackapi/slack-github-action@v1.24.0
