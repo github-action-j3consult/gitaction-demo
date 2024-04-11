@@ -13,6 +13,8 @@ RUN npm ci
 # Copy the entire project
 COPY . .
 
+ARG FLAGSMITH_KEY
+ENV FLAGSMITH_KEY=${FLAGSMITH_KEY}
 # Build the Next.js application
 RUN npm run build
 
@@ -32,8 +34,7 @@ COPY --from=build /app/package*.json ./
 RUN npm ci --only=production
 
 # Set the Flagsmith key environment variable
-ARG FLAGSMITH_KEY
-ENV FLAGSMITH_KEY=${FLAGSMITH_KEY}
+
 
 # Set the command to start the Next.js application
 CMD ["npm", "start"]
