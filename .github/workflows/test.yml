@@ -26,7 +26,6 @@ jobs:
         run: npm run typecheck
       - name: Build Project
         run: npm run build
-       
 
       - uses: actions/upload-artifact@v3
         with:
@@ -47,7 +46,7 @@ jobs:
         run: npx playwright install --with-deps
       - name: Run E2E Tests
         run: npm run test:e2e
-        
+
       - uses: actions/upload-artifact@v3
         if: always()
         with:
@@ -80,7 +79,6 @@ jobs:
           dockerfile: ./Dockerfile
           path: ./
           create_repo: false
-          
 
       - name: Send a Slack Message on Failure
         uses: slackapi/slack-github-action@v1.24.0
