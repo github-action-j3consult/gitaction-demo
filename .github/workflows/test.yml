@@ -77,12 +77,13 @@ jobs:
           secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           account_id: ${{ secrets.AWS_ACCOUNT_ID }}
           repo: cicdimg
-          region: ${{ secrets.AWS_REGION}}
+          region: ${{ secrets.AWS_REGION }}
           tags: latest,${{ github.run_number }}
           dockerfile: ./Dockerfile
           path: ./
           create_repo: false
-          extra_build_args: ${{ env.FLAGSMITH_KEY }}
+          extra_build_args: |
+            --build-arg FLAGSMITH_KEY=${{ env.FLAGSMITH_KEY }}
 
       - name: Send a Slack Message on Failure
         uses: slackapi/slack-github-action@v1.24.0
