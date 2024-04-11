@@ -13,8 +13,7 @@ RUN npm ci
 # Copy the entire project
 COPY . .
 
-ARG FLAGSMITH_KEY
-ENV FLAGSMITH_KEY=${FLAGSMITH_KEY}
+
 # Build the Next.js application
 RUN npm run build
 
